@@ -1,9 +1,9 @@
 #include <stdio.h>
 /**
  * main - prints letters in uppercase
- * Description:  prints alphabetical order  small, 
- * and convert to uppercase alphabetical order.
- * Return: 0 is indicates success
+ * Description:  prints alphabetical uppercase letters 
+ * 
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
