@@ -1,24 +1,30 @@
-#include <stdlib.h>
+#include <stdio.h>
+
 /**
- * main - main block
- * Description: prints all combinations of
- * single digit numbers
- * Return: 0
+ * main - print single digit numbers
+ * Description: print single digit numbers with commas
+ * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-	int c = 0;
+	int i;
 
-	while (c < 10)
+	i = 48;
+
+	while (i < 58)
 	{
-		putchar(48 + c);
-		if (c != 9)
+		putchar(i);
+		if (i != 57)
 		{
-			putchar(',');
-			putchar(' ');
+			putchar(44);
+			putchar(32);
 		}
-		c++;
+		i++;
 	}
-	putchar('\n');
+
+	putchar(10);
+
 	return (0);
 }
+
