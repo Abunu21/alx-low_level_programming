@@ -1,29 +1,25 @@
 #include <stdio.h>
-#include <stdlib.h>
+
 /**
- * main - main block
- * Description: prints all single digit numbers of base 16
- * starting from 0, followed by a new line.
- * Return: 0
+ * main - print the letters of the alphabet
+ * Description: print the letters base 16
+ * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-	char d = '0';
+	int i = 0;
 
-	while (d <= '9')
+	while (i < 48)
 	{
-		putchar(d);
-		d++;
+		if (i < 10)
+			putchar(i + '0');
+		else if (i > 41)
+			putchar(i - 10 + 'A');
+		i++;
 	}
+	putchar(10);
 
-	char c = 'a';
-
-	while (c <= 'f')
-	{
-		putchar(c);
-		c++;
-	}
-
-	putchar('\n');
 	return (0);
 }
+
