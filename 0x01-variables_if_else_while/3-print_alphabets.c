@@ -1,7 +1,8 @@
 #include <stdio.h>
 /**
  * main - prints letters in uppercase
- * Description:  prints alphabetical uppercase letters 
+ * 
+ * Description: prints alphabetical uppercase letters 
  * 
  * Return: Always 0 (Success)
  */
