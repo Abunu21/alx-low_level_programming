@@ -1,10 +1,9 @@
 #include <stdio.h>
 /**
- * main - prints letters in uppercase
- * 
- * Description: prints alphabetical uppercase letters 
- * 
- * Return: Always 0 (Success)
+ * main - main block
+ * Description:  prints the alphabet in lowercase,
+ * and then in uppercase, followed by a new line.
+ * Return: 0
  */
 int main(void)
 {
