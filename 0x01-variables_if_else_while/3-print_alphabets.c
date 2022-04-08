@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- * main - main block
- * Description:  prints alphabetical order  small and convert to uppercase alphabetical order
- * 
+ * main - prints letters in uppercase
+ * Description:  prints alphabetical order  small, 
+ * and convert to uppercase alphabetical order.
  * Return: 0 is indicates success
  */
 int main(void)
