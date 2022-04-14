@@ -1,0 +1,1 @@
+This About Functions for nested loops in C
