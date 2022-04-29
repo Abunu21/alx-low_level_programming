@@ -1,0 +1,1 @@
+This is about C language concepts for static libraries
