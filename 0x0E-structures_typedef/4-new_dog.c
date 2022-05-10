@@ -1,66 +1,76 @@
-include "dog.h"
+#include "dog.h"
+#include <stdio.h>
 #include <stdlib.h>
 /**
- * _strdup - returns a pointer to a newly allocated space in memory, which
- * contains a copy of the string given as a parameter.
- * @str: string to copy
- *
- * Return: Pointer
- */
-char *_strdup(char *str)
-{
-	int l, i;
-	char *s;
-
-	if (str == NULL)
-		return (0);
-
-	l = 0;
-	while (*(str + l))
-		l++;
-
-	s = malloc(sizeof(char) * l + 1);
-
-	if (s == 0)
-		return (0);
-
-	for (i = 0; i <= l; i++)
-	{
-		*(s + i) = *(str + i);
-	}
-	return (s);
-}
-/**
- * new_dog - creates a new dog
+ * new_dog - create new data structure for dog
  * @name: name of dog
  * @age: age of dog
- * @owner: owner of dog
+ * @owner: dog owner
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
+ * Return: Pointer to new dog
+ **/
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog;
+	int len_name, len_owner;
 
-	new_dog = malloc(sizeof(struct dog));
+	new_dog = malloc(sizeof(dog_t));
+	if (new_dog == NULL)
+		return (NULL);
 
-	if (new_dog == 0 || name == 0 || owner == 0)
-		return (0);
-
-	new_dog->name = _strdup(name);
-	if (new_dog->name == 0)
+	len_name = _strlen(name);
+	new_dog->name = malloc(sizeof(char) * len_name + 1);
+	if (new_dog->name == NULL)
 	{
 		free(new_dog);
-		return (0);
+		return (NULL);
 	}
-	new_dog->age = age;
-	new_dog->owner = _strdup(owner);
-	if (new_dog->owner == 0)
+	new_dog->name = _strcpy(new_dog->name, name);
+	len_owner = _strlen(owner);
+	new_dog->owner = malloc(sizeof(char) * len_owner + 1);
+	if (new_dog->owner == NULL)
 	{
-		free(new_dog);
 		free(new_dog->name);
-		return (0);
+		free(new_dog);
+		return (NULL);
 	}
+
+	new_dog->owner = _strcpy(new_dog->owner, owner);
+	new_dog->age = age;
+
 	return (new_dog);
+}
+
+/**
+ * _strlen - determinates the lenght of a string
+ * @s: pointer to string
+ * Return: the length
+ */
+int _strlen(char *s)
+{
+	int a;
+
+	for (a = 0; s[a] != '\0'; a++)
+	;
+	return (a);
+}
+
+/**
+ * _strcpy - copies a pointed string
+ * @dest: pointer to the destine string
+ * @src: pointer to the source string
+ * Return: the adress of the destiny string
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int a = 0;
+
+	while (src[a] != '\0')
+	{
+		dest[a] = src[a];
+		a++;
+	}
+
+	dest[a] = '\0';
+	return (dest);
 }
