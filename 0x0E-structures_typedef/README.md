@@ -1,0 +1,1 @@
+this is about C programming for structures typdef.
