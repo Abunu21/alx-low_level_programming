@@ -1,52 +1,39 @@
+#include "3-calc.h"
+#include <stdlib.h>
 #include <stdio.h>
-#include "function_pointers.h"
-
 /**
- * print_name_as_is - prints a name as is
- * @name: name of the person
- *
- * Return: Nothing.
- */
-void print_name_as_is(char *name)
+* main - Prints the result of simple operations.
+* @argc: The number of arguments supplied to the program.
+* @argv: An array of pointers to the arguments.
+*
+* Return: Always 0.
+*/
+int main(int argc, char *argv[])
 {
-    printf("Hello, my name is %s\n", name);
-}
+	int num1, num2;
+	char *op;
 
-/**
- * print_name_uppercase - print a name in uppercase
- * @name: name of the person
- *
- * Return: Nothing.
- */
-void print_name_uppercase(char *name)
-{
-    unsigned int i;
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
-    printf("Hello, my uppercase name is ");
-    i = 0;
-    while (name[i])
-    {
-        if (name[i] >= 'a' && name[i] <= 'z')
-        {
-            putchar(name[i] + 'A' - 'a');
-        }
-        else
-        {
-            putchar(name[i]);
-        }
-        i++;
-    }
-}
+	num1 = atoi(argv[1]);
+	op = argv[2];
+	num2 = atoi(argv[3]);
 
-/**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
- */
-int main(void)
-{
-    print_name("Danton", print_name_as_is);
-    print_name("Rick Harris", print_name_uppercase);
-    printf("\n");
-    return (0);
+	if (get_op_func(op) == NULL || op[1] != '\0')
+	{
+		printf("Error\n");
+		exit(99);
+	}
+	if ((*op == '/' && num2 == 0) ||
+	    (*op == '%' && num2 == 0))
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	printf("%d\n", get_op_func(op)(num1, num2));
+	return (0);
 }
